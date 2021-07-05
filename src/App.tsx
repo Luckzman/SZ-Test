@@ -10,14 +10,14 @@ function App() {
   const geoLocator = useGeoLocator()
 
   console.log(geoLocator, 'geoLocator')
-  return <div className="container">
+  return <>
       {geoLocator.error ? 
       <div className="error-alert">
         <p>{geoLocator.error}</p>
       </div> :  <Main />
       // <Main longitude={geoLocator.longitude} latitude={geoLocator.latitude} /> }
       }
-    </div>
+    </>
 }
 
 export default App;

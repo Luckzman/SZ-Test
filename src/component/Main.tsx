@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Main.css'
 
 export interface IResult {
   response: {
@@ -88,11 +89,13 @@ function Main() {
 
   return (
     <div className="container">
-        <h1>Coffee Shop Finder</h1>
-        <select name="" onChange={handleChange} value={sortOption}>
-          <option value="distance">Distance</option>
-          <option value="name">Price</option>
-        </select>
+        <div className="header">
+          <h1>Coffee Shop Finder</h1>
+          <select name="" onChange={handleChange} value={sortOption}>
+            <option value="distance">Distance</option>
+            <option value="name">Price</option>
+          </select>
+        </div>
         <div className="main">
           {placeData?.sort((a: any, b: any) => (sortOption === 'distance' ? 
             (a.venue.location.distance > b.venue.location.distance) : (a.price > b.price)) ? 1 : -1)
