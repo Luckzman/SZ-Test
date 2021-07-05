@@ -1,17 +1,31 @@
 import {useState, useEffect} from 'react';
 
+interface IState {
+  longitude: number
+  latitude: number
+}
+type error = string
+
+interface Coords{
+  coords: IState
+}
+
+interface ErrorMsg {
+  message: string
+}
+
 export const useGeoLocator = () => {
-  const [position, setPosition] = useState({});
-  const [error, setError] = useState(null);
+  const [position, setPosition] = useState<IState>({latitude: 0, longitude: 0});
+  const [error, setError] = useState<error>('');
   
-  const onChange = ({coords}) => {
+  const onChange = ({coords}: Coords) => {
     setPosition({
       latitude: coords.latitude,
       longitude: coords.longitude,
     });
   };
 
-  const onError = (error) => {
+  const onError = (error: ErrorMsg) => {
     setError(error.message);
   };
 
