@@ -1,0 +1,9 @@
+@media (min-width: 992px) {
+  .main{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 25px;
+    margin: 0 auto 10px;
+    max-width: 800px;
+  }
+}
